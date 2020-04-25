@@ -23,7 +23,7 @@ Guard				Report
 -Phone Number	-Time/Period
 -Location		-Location/Zone
 -Company			-Description
--password
+-password      -Guard ID
 
 Associations
 Guard				      Report
