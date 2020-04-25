@@ -6,18 +6,24 @@ Goals
 -User authentication.
 -Validate user input.
 
+Stretch Goals
+
+-CSS for the visual aspect
+-Build a join model
+-Add date scheduling feature
+
 Models
 ##User/Guard
 ##Report
 
 Attributes				
-User				Report
+Guard				Report
 -Name				-Type
--Email				-Date
--Phone Number		-Time/Period
--Location			-Location/Zone
+-Email			-Date
+-Phone Number	-Time/Period
+-Location		-Location/Zone
 -Company			-Description
 
 Associations
-User				      Report
--Has Many Reports		-Belongs To a User
+Guard				      Report
+-Has Many Reports		-Belongs To a Guard
