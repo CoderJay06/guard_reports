@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     98182c10b5ec5b1de3042"
   end
 
-  get "/" do
+  get '/' do
     erb :index
   end
 
