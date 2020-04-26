@@ -2,11 +2,8 @@ class GuardsController < ApplicationController
 
    get '/signup' do 
       # render signup form page if not logged in 
-      if !logged_in?
-        erb :'guards/signup'
-      else 
-        redirect to "/reports"
-      end 
+    
+      erb :'guards/signup'
    end
    
    post '/signup' do 
@@ -36,10 +33,16 @@ class GuardsController < ApplicationController
    end 
    
    post '/login' do 
-    # find current guard/user and assign to session
+    # find current guard/user 
     @guard = Guard.find_by(email: params[:email])
-    session[:id] = @guard.id 
-    redirect to "/reports"
+    #binding.pry 
+    # validate user credentials
+    if @guard && @guard.authenticate(params[:password])
+      session[:id] = @guard.id 
+      redirect to "/reports"
+    else 
+      redirect to "/login"
+    end
    end 
 
    get '/logout' do 
