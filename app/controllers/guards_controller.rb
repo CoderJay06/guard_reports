@@ -6,7 +6,7 @@ class GuardsController < ApplicationController
    end 
 
    get '/login' do 
-
+      
    end 
 
    get '/logout' do 
