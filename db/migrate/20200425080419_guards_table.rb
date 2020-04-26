@@ -5,7 +5,6 @@ class GuardsTable < ActiveRecord::Migration
       t.string :email
       t.integer :number
       t.string :password_digest
-      t.string :location 
       t.string :company 
 
       t.timestamps null: false

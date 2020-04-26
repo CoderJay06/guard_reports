@@ -1,7 +1,7 @@
 class ReportsTable < ActiveRecord::Migration
   def change
     create_table :reports do |t|
-      t.string :type 
+      t.string :report_type 
       t.integer :guard_id
       t.date :date
       t.time :time
