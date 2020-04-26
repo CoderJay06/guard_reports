@@ -11,5 +11,20 @@
    report_type: "Daily Activity Report",
    guard_id: @guard1.id,
    location: "Long Island NY",
-   description: "Patroled the perimeter"
+   description: "Patroled the perimeter of property."
+)
+
+@guard2 = Guard.create(
+   name: "Bob Smith",
+   email: "bob@example.com",
+   number: 1534447657,
+   password: "bob1234",
+   company: "L4 Security"
+)
+
+@report2 = Report.create(
+   report_type: "Daily Activity Report",
+   guard_id: @guard2.id,
+   location: "Orlando Florida",
+   description: "Monitored property and patroled perimeter."
 )
