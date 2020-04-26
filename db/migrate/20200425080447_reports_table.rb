@@ -6,7 +6,7 @@ class ReportsTable < ActiveRecord::Migration
       t.date :date
       t.time :time
       t.string :location
-      t.string :description
+      t.text :description
 
       t.timestamps null: false
     end 

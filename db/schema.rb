@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20200425080447) do
     t.date     "date"
     t.time     "time"
     t.string   "location"
-    t.string   "description"
+    t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
