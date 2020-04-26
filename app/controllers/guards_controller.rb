@@ -8,9 +8,12 @@ class GuardsController < ApplicationController
    post '/signup' do 
       #binding.pry
       
-      # when all signup fields are filled out 
-      # creates a new guard/user and redirects login  
-      if !fields_empty?
+       # redirects back to signup if fields not filled out
+      if fields_empty?
+        redirect to "/signup"
+      else 
+        # when all signup fields are filled out 
+        # creates a new guard/user and redirects login
          @guard = Guard.create(
             name: params[:name],
             email: params[:email],
@@ -18,11 +21,8 @@ class GuardsController < ApplicationController
             password: params[:password],
             company: params[:company]
          )
-         #raise params.inspect 
+
          redirect to "/login"
-      else 
-        # redirects back to signup if fields not filled
-        redirect "/signup"
       end 
    end 
 
