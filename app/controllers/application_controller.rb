@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
     end 
     
     def current_user 
-      Guard.find_by(session[:id])
+      @current_user ||= Guard.find_by(session[:id]) if session[:id]
     end 
     
     # determine if user signup fields are filled out

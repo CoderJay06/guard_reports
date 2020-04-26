@@ -2,8 +2,11 @@ class GuardsController < ApplicationController
 
    get '/signup' do 
       # render signup form page if not logged in 
-    
-      erb :'guards/signup'
+      if !logged_in? 
+         erb :'guards/signup'
+      else 
+         redirect to "/reports"
+      end 
    end
    
    post '/signup' do 
@@ -14,7 +17,7 @@ class GuardsController < ApplicationController
         redirect to "/signup"
       else 
         # when all signup fields are filled out 
-        # creates a new guard/user and redirects login
+        # creates a new guard/user and redirects to login
          @guard = Guard.create(
             name: params[:name],
             email: params[:email],

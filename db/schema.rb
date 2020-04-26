@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200425080447) do
+ActiveRecord::Schema.define(version: 20200426235157) do
 
   create_table "guards", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.integer  "number"
+    t.string   "number"
     t.string   "password_digest"
     t.string   "company"
     t.datetime "created_at",      null: false
