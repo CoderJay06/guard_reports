@@ -22,6 +22,11 @@ class ApplicationController < Sinatra::Base
     def current_user 
       Guard.find_by(session[:id])
     end 
+
+    def fields_empty? 
+      params[:name] == " " || params[:email] == " " || params[:company] == " " || 
+      params[:password] == " " || params[:number] == " "
+    end 
   end 
 
 end
