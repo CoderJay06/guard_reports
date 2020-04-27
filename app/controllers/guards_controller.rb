@@ -57,4 +57,9 @@ class GuardsController < ApplicationController
          redirect to "/login"
       end 
    end 
+
+   post '/logout' do 
+      session.clear 
+      redirect to "/login"
+   end 
 end 
