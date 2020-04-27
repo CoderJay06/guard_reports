@@ -38,8 +38,8 @@ class GuardsController < ApplicationController
    post '/login' do 
     # find current guard/user 
     @guard = Guard.find_by(email: params[:email])
-    #binding.pry 
-    # validate user credentials
+  
+    # validate user credentials and login if validated
     if @guard && @guard.authenticate(params[:password])
       session[:id] = @guard.id 
       redirect to "/reports"
@@ -49,6 +49,12 @@ class GuardsController < ApplicationController
    end 
 
    get '/logout' do 
-
+      # render the logout page if user is logged in
+      if logged_in?
+         erb :'guards/logout'
+      else 
+         # redirect to login if not logged in 
+         redirect to "/login"
+      end 
    end 
 end 
