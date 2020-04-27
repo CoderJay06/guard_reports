@@ -1,7 +1,7 @@
 class ReportsController < ApplicationController 
 
    get '/reports' do 
-      @report = Report.all 
+      @reports = Report.all 
 
       erb :'reports/reports'
    end 

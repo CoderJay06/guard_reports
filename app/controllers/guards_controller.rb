@@ -41,7 +41,7 @@ class GuardsController < ApplicationController
   
     # validate user credentials and login if validated
     if @guard && @guard.authenticate(params[:password])
-      session[:id] = @guard.id 
+      session[:guard_id] = @guard.id 
       redirect to "/reports"
     else 
       redirect to "/login"
@@ -59,7 +59,17 @@ class GuardsController < ApplicationController
    end 
 
    post '/logout' do 
+      # logout the user/guard and redirect to login
       session.clear 
       redirect to "/login"
    end 
+
+   # get '/:id' do 
+   #    # find current user/guard by email
+   #    @guard = Guard.find_by(email: params[:email])
+   #    @reports = Report.all
+   #    # render their show page
+   #    erb :'guards/show'
+   # end 
+
 end 

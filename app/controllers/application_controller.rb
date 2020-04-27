@@ -14,14 +14,16 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
-
+  # helper methods for controllers
   helpers do 
+    # true if user/guard is logged in else false
     def logged_in?
+      # boolean expression of objects truthiness
       !!current_user
     end 
     
     def current_user 
-      @current_user ||= Guard.find_by(session[:id]) if session[:id]
+      @current_user ||= Guard.find_by(session[:guard_id]) if session[:guard_id]
     end 
     
     # determine if user signup fields are filled out
