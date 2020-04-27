@@ -1,9 +1,12 @@
 class ReportsController < ApplicationController 
 
    get '/reports' do 
-      @reports = Report.all 
-      @guard = Guard.find_by(params[:id])
-      erb :'reports/reports'
+      if logged_in?
+         @reports = Report.all 
+         erb :'reports/reports'
+      else 
+         redirect to "/signup"
+      end 
    end 
 
    get '/reports/new' do 

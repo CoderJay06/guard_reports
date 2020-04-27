@@ -1,0 +1,22 @@
+<h4>Create a new report</h4>
+
+<form action="/new" method="POST"> 
+   <br>
+   <label for="report_type">Type</label>
+   <input id="report_type" type="text" name="report_type">
+   <br>
+   <label for="report_date">Date</label>
+   <input id="report_date" type="date" name="date">
+   <br>
+   <label for="report_time">Time</label>
+   <input id="report_time" type="time" name="time">
+   <br>
+   <label for="report_location">Location</label>
+   <input id="report_location" type="text" name="location">
+   <br>
+   <p>Description:</p>
+   <textarea id="report_description" name="description" 
+   rows="10" cols="50" placeholder="Description of event.."></textarea>
+   <br>
+   <input type="submit" value="Submit Report">
+</form>
