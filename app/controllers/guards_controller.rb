@@ -17,7 +17,7 @@ class GuardsController < ApplicationController
         redirect to "/signup"
       else 
         # when all signup fields are filled out 
-        # creates a new guard/user and redirects to login
+        # creates a new guard/user and logs them in 
          @guard = Guard.create(
             name: params[:name],
             email: params[:email],
@@ -26,7 +26,8 @@ class GuardsController < ApplicationController
             company: params[:company]
          )
 
-         redirect to "/login"
+        session[:guard_id] = @guard.id 
+        redirect to "guards/#{@guard.id}"
       end 
    end 
 
