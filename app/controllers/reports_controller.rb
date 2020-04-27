@@ -35,6 +35,12 @@ class ReportsController < ApplicationController
       end 
    end 
 
+   get '/reports/:id/edit' do 
+      @report = Report.find_by_id(params[:id])
+
+      erb :'reports/edit'
+   end 
+
    get '/reports/:id' do 
       @report = Report.find_by_id(params[:id])
       if logged_in? 
@@ -44,7 +50,7 @@ class ReportsController < ApplicationController
       end 
    end 
 
-   patch '/reports/:id/edit' do 
+   patch '/reports/:id' do 
       binding.pry
       @report = Report.find_by_id(params[:id])
    end 
