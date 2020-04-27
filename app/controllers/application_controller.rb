@@ -31,6 +31,12 @@ class ApplicationController < Sinatra::Base
       params[:name] == "" || params[:email] == "" || params[:company] == "" || 
       params[:password] == "" || params[:number] == ""
     end 
+
+    # determine if create new report fields are filled out 
+    def report_fields_empty? 
+      params[:report_type] == "" || params[:date] == "" || params[:time] == "" || 
+      params[:location] == "" || params[:description] == ""
+    end 
   end 
 
 end
