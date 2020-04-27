@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
     end 
     
     # determine if user signup fields are filled out
-    def fields_empty? 
+    def signup_fields_empty? 
       params[:name] == "" || params[:email] == "" || params[:company] == "" || 
       params[:password] == "" || params[:number] == ""
     end 

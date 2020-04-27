@@ -13,7 +13,7 @@ class GuardsController < ApplicationController
       #binding.pry
       
        # redirects back to signup if fields not filled out
-      if fields_empty?
+      if signup_fields_empty?
         redirect to "/signup"
       else 
         # when all signup fields are filled out 

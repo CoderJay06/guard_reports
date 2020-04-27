@@ -28,7 +28,6 @@ class ReportsController < ApplicationController
             location: params[:location],
             description: params[:description]
          )
-         #binding.pry
          @report.guard_id = session[:guard_id]
          
          erb :"reports/show_report"

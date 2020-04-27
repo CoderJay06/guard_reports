@@ -1,4 +1,14 @@
 <h4>All Reports</h4>
-<p><% @reports %></p>
+  <ul>
+    <% @reports.each do |report| %>
+    <br>
+    <li>Report Type: <%= report.report_type %></li>
+    <li>Report Date: <%= report.date %></li>
+    <li>Report Time: <%= report.time %></li>
+    <li>Report Location: <%= report.location %></li>
+    <li>Report Description: <%= report.description %></li>
+    <br>
+    <% end %>
+  </ul>
 
 <a href="/logout"><input type="submit" value="Exit"></a>
