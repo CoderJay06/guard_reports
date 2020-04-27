@@ -31,7 +31,7 @@ class ReportsController < ApplicationController
          # assign guard/user to their report
          @report.guard_id = session[:guard_id]
          # render report show page 
-         erb :"reports/show_report"
+         redirect to "/reports/#{@report.id}"
       end 
    end 
 
@@ -42,6 +42,7 @@ class ReportsController < ApplicationController
    end 
 
    get '/reports/:id' do 
+      #binding.pry
       @report = Report.find_by_id(params[:id])
       if logged_in? 
          erb :"reports/show_report"

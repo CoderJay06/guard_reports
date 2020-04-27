@@ -2,6 +2,7 @@
   <ul>
     <% @reports.each do |report| %>
     <br>
+    <li><a href="/reports/<%= report.id %>">View Report</a></li>
     <li>Report Type: <%= report.report_type %></li>
     <li>Report Date: <%= report.date %></li>
     <li>Report Time: <%= report.time %></li>
