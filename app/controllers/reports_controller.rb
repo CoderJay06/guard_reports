@@ -41,6 +41,12 @@ class ReportsController < ApplicationController
       erb :'reports/edit'
    end 
 
+   get '/reports/:id/delete' do 
+      @report = Report.find_by_id(params[:id])
+
+      erb :'reports/delete'
+   end 
+
    get '/reports/:id' do 
       #binding.pry
       @report = Report.find_by_id(params[:id])
@@ -63,5 +69,18 @@ class ReportsController < ApplicationController
       )
       redirect to "/reports/#{@report.id}"
    end 
-  
+
+   # get '/reports/:id/delete' do 
+   #    @report = Report.find_by_id(params[:id])
+
+   #    erb :'reports/delete'
+   # end 
+
+   delete '/reports/:id' do 
+      @report = Report.find_by(params[:id]) 
+      #binding.pry
+      @report.delete
+      redirect to "/reports"
+   end 
+      
 end 
