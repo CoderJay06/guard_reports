@@ -52,8 +52,16 @@ class ReportsController < ApplicationController
    end 
 
    patch '/reports/:id' do 
-      binding.pry
+      #binding.pry
       @report = Report.find_by_id(params[:id])
+      @report.update(
+         report_type: params[:report_type],
+         date: params[:date],
+         time: params[:time],
+         location: params[:location],
+         description: params[:description]
+      )
+      redirect to "/reports/#{@report.id}"
    end 
   
 end 

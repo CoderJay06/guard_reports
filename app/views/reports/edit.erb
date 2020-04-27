@@ -3,20 +3,20 @@
    <input id="hidden" type="hidden" name="_method" value="patch">
 
    <label for="report_type">Type</label>
-   <input id="report_type" type="text" name="report_type" value="<%="#{@report.report_type}"%>">
+   <input id="report_type" type="text" name="report_type" value="<%= @report.report_type %>">
    <br>
    <label for="report_date">Date</label>
-   <input id="report_date" type="date" name="date" value="<%= "#{@report.date}"%>">
+   <input id="report_date" type="date" name="date" value="<%= @report.date %>">
    <br>
    <label for="report_time">Time</label>
-   <input id="report_time" type="time" name="time" value="<%= "#{@report.time}"%>">
+   <input id="report_time" type="time" name="time" value="<%= @report.time %>">
    <br>
    <label for="report_location">Location</label>
-   <input id="report_location" type="text" name="location" value="<%= "#{@report.location}"%>">
+   <input id="report_location" type="text" name="location" value="<%= @report.location %>">
    <br>
    <p>Description:</p>
    <textarea id="report_description" name="description" 
-   rows="10" cols="50" placeholder="<%="#{@report.description}"%>"></textarea>
+   rows="10" cols="50" placeholder="<%= @report.description %>"></textarea>
    <br>
    <input type="submit" value="Update">
 
