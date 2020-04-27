@@ -20,15 +20,20 @@ class ReportsController < ApplicationController
       if report_fields_empty?
          redirect to "/reports/new"
       else 
-         Report.create(
+        #binding.pry
+         @report = Report.create(
             report_type: params[:report_type],
             date: params[:date],
             time: params[:time],
             location: params[:location],
             description: params[:description]
          )
-         redirect to "/reports"
+         #binding.pry
+         @report.guard_id = session[:guard_id]
+         
+         erb :"reports/show_report"
       end 
    end 
+  
 
 end 
