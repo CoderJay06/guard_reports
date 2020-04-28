@@ -60,7 +60,7 @@ class GuardsController < ApplicationController
    end 
 
    post '/logout' do 
-      # logout the user/guard and redirect to login
+      #logout the user/guard and redirect to login
       session.clear 
       redirect to "/login"
    end 
@@ -70,7 +70,7 @@ class GuardsController < ApplicationController
       #raise params.inspect
       #binding.pry
       @guard = Guard.find_by_id(params[:id])
-      @reports = Report.all
+
       # render their show page
       erb :'guards/show'
    end 

@@ -1,7 +1,17 @@
 <p>Welcome, <%= @guard.name %></p>
 
 <p>Your Reports:</p>
-<% @reports %>
+<% @guard.reports.each_with_index do |report, idx| %>
+<ul>
+   <li><%= idx + 1 %>.</li>
+   <li><%= report.report_type %></li>
+   <li><%= report.date %></li>
+   <li><%= report.time %></li>
+   <li><%= report.location %></li>
+   <li><%= report.description %></li>
+</ul>
+<% end %>
+<br>
 <a href="/reports/new">New report</a>
 <br>
 <a href="/reports">All reports</a>
