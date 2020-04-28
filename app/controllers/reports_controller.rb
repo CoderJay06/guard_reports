@@ -49,7 +49,7 @@ class ReportsController < ApplicationController
 
    get '/reports/:id/edit' do 
       @report = Report.find_by_id(params[:id])
-
+  
       erb :'reports/edit'
    end 
 
@@ -63,27 +63,31 @@ class ReportsController < ApplicationController
    patch '/reports/:id' do 
       #binding.pry
       @report = Report.find_by_id(params[:id])
-      @report.update(
-         report_type: params[:report_type],
-         date: params[:date],
-         time: params[:time],
-         location: params[:location],
-         description: params[:description]
-      )
-      redirect to "/reports/#{@report.id}"
+      if @report.guard == current_user
+         @report.update(
+            report_type: params[:report_type],
+            date: params[:date],
+            time: params[:time],
+            location: params[:location],
+            description: params[:description]
+         )
+         redirect to "/reports/#{@report.id}"
+      else 
+         puts "You can not edit another guards report!"
+         redirect to "/reports"
+      end 
    end 
 
-   # get '/reports/:id/delete' do 
-   #    @report = Report.find_by_id(params[:id])
-
-   #    erb :'reports/delete'
-   # end 
-
    delete '/reports/:id' do 
-      @report = Report.find_by(params[:id]) 
+      @report = Report.find_by_id(params[:id]) 
       #binding.pry
-      @report.delete
-      redirect to "/reports"
+      if @report.guard == current_user
+         @report.delete
+         redirect to "/reports"
+      else 
+         puts "You can not delete another guards report!"
+         redirect to "/reports"
+      end 
    end 
       
 end 
