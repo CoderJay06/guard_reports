@@ -25,9 +25,9 @@ class GuardsController < ApplicationController
             password: params[:password],
             company: params[:company]
          )
-
-        session[:guard_id] = @guard.id 
-        redirect to "guards/#{@guard.id}"
+         #binding.pry 
+         session[:guard_id] = @guard.id 
+         redirect to "guards/#{@guard.id}"
       end 
    end 
 
@@ -54,8 +54,8 @@ class GuardsController < ApplicationController
       if logged_in?
          erb :'guards/logout'
       else 
-         # redirect to login if not logged in 
-         redirect to "/login"
+         # redirect to homepage if not logged in 
+         redirect to "/"
       end 
    end 
 

@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem "activemodel", require: "active_model"
 
 group :test do
   gem 'rspec'
