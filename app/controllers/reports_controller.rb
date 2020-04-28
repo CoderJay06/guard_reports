@@ -30,21 +30,10 @@ class ReportsController < ApplicationController
          )
          # assign guard/user to their report
          @report.guard_id = session[:guard_id]
+         @report.save
          # render report show page 
          redirect to "/reports/#{@report.id}"
       end 
-   end 
-
-   get '/reports/:id/edit' do 
-      @report = Report.find_by_id(params[:id])
-
-      erb :'reports/edit'
-   end 
-
-   get '/reports/:id/delete' do 
-      @report = Report.find_by_id(params[:id])
-
-      erb :'reports/delete'
    end 
 
    get '/reports/:id' do 
@@ -55,6 +44,20 @@ class ReportsController < ApplicationController
       else 
          redirect to "/login"
       end 
+   end 
+
+
+   get '/reports/:id/edit' do 
+      @report = Report.find_by_id(params[:id])
+
+      erb :'reports/edit'
+   end 
+
+
+   get '/reports/:id/delete' do 
+      @report = Report.find_by_id(params[:id])
+
+      erb :'reports/delete'
    end 
 
    patch '/reports/:id' do 
