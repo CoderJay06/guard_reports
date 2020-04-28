@@ -11,9 +11,7 @@ class GuardsController < ApplicationController
    
    post '/signup' do 
       #binding.pry
-       # redirects back to signup if fields not filled out
-      # when all signup fields are filled out 
-      # creates a new guard/user and logs them in 
+      # creates a new guard/user 
       @guard = Guard.create(
          name: params[:name],
          email: params[:email],
@@ -21,12 +19,13 @@ class GuardsController < ApplicationController
          password: params[:password],
          company: params[:company]
       )
-      #binding.pry 
+      # log in user/guard when created fields are valid
+      # then redirect to their show page
       if @guard.valid?
          session[:guard_id] = @guard.id 
          redirect to "guards/#{@guard.id}"
       else 
-         # puts "You need to enter unique credentials!"
+         # redirects back to signup if fields not valid or empty
          redirect to "/signup"
       end 
    end 
@@ -45,6 +44,7 @@ class GuardsController < ApplicationController
       session[:guard_id] = @guard.id 
       redirect to "guards/#{@guard.id}"
     else 
+      # redirect back if credentials not validated
       redirect to "/login"
     end
    end 
@@ -65,11 +65,9 @@ class GuardsController < ApplicationController
       session.clear 
       redirect to "/login"
    end 
-
+   # dynamic route for a single user/guard
    get '/guards/:id' do 
-      # find current user/guard by email
-      #raise params.inspect
-      #binding.pry
+      # find current user/guard by ID
       @guard = Guard.find_by_id(params[:id])
 
       # render their show page

@@ -5,7 +5,6 @@ class Guard < ActiveRecord::Base
    validates :name, :email, :number, :password, :company,
    presence: true  
    validates :email, uniqueness: true
-
    has_secure_password
    has_many :reports
 end 

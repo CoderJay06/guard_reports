@@ -1,4 +1,7 @@
+
+
 class ReportsController < ApplicationController 
+   
    # render reports page to view all reports when logged in
    get '/reports' do 
       @reports = Report.all 
@@ -35,9 +38,9 @@ class ReportsController < ApplicationController
          redirect to "/reports"
       end 
    end 
-
+   # dynamic route for viewing single report
    get '/reports/:id' do 
-      #binding.pry
+      # find report by ID and render show page if logged in
       @report = Report.find_by_id(params[:id])
       if logged_in? 
          erb :"reports/show_report"
@@ -46,14 +49,14 @@ class ReportsController < ApplicationController
       end 
    end 
 
-
+   # render the edit page for a single report
    get '/reports/:id/edit' do 
       @report = Report.find_by_id(params[:id])
   
       erb :'reports/edit'
    end 
 
-
+   # render delete page for a single report
    get '/reports/:id/delete' do 
       @report = Report.find_by_id(params[:id])
 
@@ -63,6 +66,7 @@ class ReportsController < ApplicationController
    patch '/reports/:id' do 
       #binding.pry
       @report = Report.find_by_id(params[:id])
+      # update report if reports owner is the logged in user/guard
       if @report.guard == current_user
          @report.update(
             report_type: params[:report_type],
@@ -71,8 +75,10 @@ class ReportsController < ApplicationController
             location: params[:location],
             description: params[:description]
          )
+         # redirect to reports show page
          redirect to "/reports/#{@report.id}"
       else 
+         # if logged in user/guard is not reports owner display warning
          puts "You can not edit another guards report!"
          redirect to "/reports"
       end 
@@ -81,10 +87,12 @@ class ReportsController < ApplicationController
    delete '/reports/:id' do 
       @report = Report.find_by_id(params[:id]) 
       #binding.pry
+      # delete report if reports owner is the logged in user/guard
       if @report.guard == current_user
          @report.delete
          redirect to "/reports"
       else 
+         # if logged in user/guard is not reports owner display warning
          puts "You can not delete another guards report!"
          redirect to "/reports"
       end 
