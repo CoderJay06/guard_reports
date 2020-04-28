@@ -11,23 +11,23 @@ class GuardsController < ApplicationController
    
    post '/signup' do 
       #binding.pry
-      
        # redirects back to signup if fields not filled out
-      if signup_fields_empty?
-        redirect to "/signup"
-      else 
-        # when all signup fields are filled out 
-        # creates a new guard/user and logs them in 
-         @guard = Guard.create(
-            name: params[:name],
-            email: params[:email],
-            number: params[:number],
-            password: params[:password],
-            company: params[:company]
-         )
-         #binding.pry 
+      # when all signup fields are filled out 
+      # creates a new guard/user and logs them in 
+      @guard = Guard.create(
+         name: params[:name],
+         email: params[:email],
+         number: params[:number],
+         password: params[:password],
+         company: params[:company]
+      )
+      #binding.pry 
+      if @guard.valid?
          session[:guard_id] = @guard.id 
          redirect to "guards/#{@guard.id}"
+      else 
+         # puts "You need to enter unique credentials!"
+         redirect to "/signup"
       end 
    end 
 
@@ -51,6 +51,7 @@ class GuardsController < ApplicationController
 
    get '/logout' do 
       # render the logout page if user is logged in
+      #binding.pry
       if logged_in?
          erb :'guards/logout'
       else 

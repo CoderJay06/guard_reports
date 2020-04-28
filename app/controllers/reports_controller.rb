@@ -17,22 +17,22 @@ class ReportsController < ApplicationController
    # creates new reports when all form fields are filled
    post '/reports' do 
       #raise params.inspect
-      if report_fields_empty?
-         redirect to "/reports/new"
-      else 
         #binding.pry
-         @report = Report.create(
-            report_type: params[:report_type],
-            date: params[:date],
-            time: params[:time],
-            location: params[:location],
-            description: params[:description]
-         )
+      @report = Report.create(
+         report_type: params[:report_type],
+         date: params[:date],
+         time: params[:time],
+         location: params[:location],
+         description: params[:description]
+      )
+      if @report.valid?
          # assign guard/user to their report
          @report.guard_id = session[:guard_id]
          @report.save
          # render report show page 
          redirect to "/reports/#{@report.id}"
+      else 
+         redirect to "/reports"
       end 
    end 
 
