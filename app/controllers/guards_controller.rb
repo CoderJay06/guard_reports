@@ -1,5 +1,5 @@
-class GuardsController < ApplicationController 
 
+class GuardsController < ApplicationController 
    get '/signup' do 
       # render signup form page if not logged in 
       if !logged_in? 

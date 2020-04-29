@@ -13,7 +13,7 @@ gem 'bcrypt'
 gem 'tux'
 gem "activemodel", require: "active_model"
 # gem 'sinatra-flash'
-# gem 'rack-flash3'
+gem 'rack-flash3'
 # gem "dynamic_form"
 
 group :test do

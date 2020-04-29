@@ -15,13 +15,17 @@
   </head>
   <body>
     <div class="wrapper">
-
-        <%= yield %>
-
+     <%= yield %>
+     <h5><a href="/">Home</a></h5>
+      <% if current_user %>
+        <h5><a href='/logout'>Logout</a></h5>
+        <h5>Currently signed in as: <a href="/users/<%= current_user.id %>">
+        <%= current_user.name %></a></h5>
+      <% end %>
       <footer class="branding">
         <small>&copy; 2020 <strong>GuardReports</strong></small>
       </footer>
-    </div>
+      </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <!--[if lt IE 7]>
