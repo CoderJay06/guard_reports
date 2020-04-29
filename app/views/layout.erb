@@ -17,11 +17,11 @@
     <div class="wrapper">
      <%= yield %>
      <h5><a href="/">Home</a></h5>
-      <% if current_user %>
+     <% if current_user %>
         <h5><a href='/logout'>Logout</a></h5>
-        <h5>Currently signed in as: <a href="/users/<%= current_user.id %>">
+        <h5>Currently signed in as: <a href="/guards/<%= current_user.id %>">
         <%= current_user.name %></a></h5>
-      <% end %>
+        <% end %>
       <footer class="branding">
         <small>&copy; 2020 <strong>GuardReports</strong></small>
       </footer>

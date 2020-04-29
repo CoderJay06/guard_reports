@@ -29,17 +29,17 @@ class ApplicationController < Sinatra::Base
       @current_user ||= Guard.find_by(session[:guard_id]) if session[:guard_id]
     end 
     
-    # determine if user signup fields are filled out
-    def signup_fields_empty? 
-      params[:name] == "" || params[:email] == "" || params[:company] == "" || 
-      params[:password] == "" || params[:number] == ""
-    end 
+    # # determine if user signup fields are filled out
+    # def signup_fields_empty? 
+    #   params[:name] == "" || params[:email] == "" || params[:company] == "" || 
+    #   params[:password] == "" || params[:number] == ""
+    # end 
 
-    # determine if create new report fields are filled out 
-    def report_fields_empty? 
-      params[:report_type] == "" || params[:date] == "" || params[:time] == "" || 
-      params[:location] == "" || params[:description] == ""
-    end 
+    # # determine if create new report fields are filled out 
+    # def report_fields_empty? 
+    #   params[:report_type] == "" || params[:date] == "" || params[:time] == "" || 
+    #   params[:location] == "" || params[:description] == ""
+    # end 
   end 
 
 end
