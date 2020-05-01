@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
     end 
     
     def current_user 
-      @current_user ||= Guard.find_by(session[:guard_id]) if session[:guard_id]
+      @current_user = Guard.find(session[:guard_id]) if session[:guard_id]
     end 
 
     def create_new_user(user)

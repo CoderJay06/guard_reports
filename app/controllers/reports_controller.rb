@@ -21,7 +21,6 @@ class ReportsController < ApplicationController
    post '/reports' do 
       @report = Report.new 
       create_new_report(@report)
-      #binding.pry 
       if @report.valid?
          # assign guard/user to their report
          @report.guard_id = session[:guard_id]
@@ -34,6 +33,7 @@ class ReportsController < ApplicationController
    end 
    # dynamic route for viewing single report
    get '/reports/:id' do 
+      #binding.pry
       # find report by ID and render show page if logged in
       @report = Report.find_by_id(params[:id])
       if logged_in? 
@@ -46,7 +46,7 @@ class ReportsController < ApplicationController
    # render the edit page for a single report
    get '/reports/:id/edit' do 
       @report = Report.find_by_id(params[:id])
-  
+      #binding.pry
       erb :'reports/edit'
    end 
 
@@ -58,8 +58,8 @@ class ReportsController < ApplicationController
    end 
 
    patch '/reports/:id' do 
-      #binding.pry
       @report = Report.find_by_id(params[:id])
+      binding.pry
       # update report if reports owner is the logged in user/guard
       if @report.guard == current_user
          @report.update(
