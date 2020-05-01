@@ -3,20 +3,20 @@
 <form action="/reports" method="POST">
    <br>
    <label for="report_type">Type</label>
-   <input id="report_type" type="text" name="report_type">
+   <input id="report_type" type="text" name="report_type" required>
    <br>
    <label for="report_date">Date</label>
-   <input id="report_date" type="date" name="date">
+   <input id="report_date" type="date" name="date" required>
    <br>
    <label for="report_time">Time</label>
-   <input id="report_time" type="time" name="time">
+   <input id="report_time" type="time" name="time" required>
    <br>
    <label for="report_location">Location</label>
-   <input id="report_location" type="text" name="location">
+   <input id="report_location" type="text" name="location" required>
    <br>
    <p>Description:</p>
    <textarea id="report_description" name="description" 
-   rows="10" cols="50" placeholder="Description of event.."></textarea>
+   rows="10" cols="50" placeholder="Description of event.." required></textarea>
    <br>
    <input type="submit" value="Submit Report">
 </form>
