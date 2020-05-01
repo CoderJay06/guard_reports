@@ -35,7 +35,7 @@ class ReportsController < ApplicationController
    get '/reports/:id' do 
       #binding.pry
       # find report by ID and render show page if logged in
-      @report = Report.find_by_id(params[:id])
+      set_report
       if logged_in? 
          erb :"reports/show_report"
       else 
@@ -45,20 +45,20 @@ class ReportsController < ApplicationController
 
    # render the edit page for a single report
    get '/reports/:id/edit' do 
-      @report = Report.find_by_id(params[:id])
+      set_report
       #binding.pry
       erb :'reports/edit'
    end 
 
    # render delete page for a single report
    get '/reports/:id/delete' do 
-      @report = Report.find_by_id(params[:id])
+      set_report
 
       erb :'reports/delete'
    end 
 
    patch '/reports/:id' do 
-      @report = Report.find_by_id(params[:id])
+      set_report
       #binding.pry
       # update report if reports owner is the logged in user/guard
       if @report.guard == current_user
@@ -73,7 +73,7 @@ class ReportsController < ApplicationController
    end 
 
    delete '/reports/:id' do 
-      @report = Report.find_by_id(params[:id]) 
+      set_report
       #binding.pry
       # delete report if reports owner is the logged in user/guard
       if @report.guard == current_user

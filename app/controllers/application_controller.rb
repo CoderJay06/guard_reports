@@ -56,6 +56,10 @@ class ApplicationController < Sinatra::Base
         description: params[:description]
      )
     end 
+
+    def set_report 
+      @report = Report.find_by_id(params[:id])
+    end 
     # # determine if user signup fields are filled out
     # def signup_fields_empty? 
     #   params[:name] == "" || params[:email] == "" || params[:company] == "" || 
