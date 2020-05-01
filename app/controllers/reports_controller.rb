@@ -59,16 +59,10 @@ class ReportsController < ApplicationController
 
    patch '/reports/:id' do 
       @report = Report.find_by_id(params[:id])
-      binding.pry
+      #binding.pry
       # update report if reports owner is the logged in user/guard
       if @report.guard == current_user
-         @report.update(
-            report_type: params[:report_type],
-            date: params[:date],
-            time: params[:time],
-            location: params[:location],
-            description: params[:description]
-         )
+         report_update(@report)
          # redirect to reports show page
          redirect to "/reports/#{@report.id}"
       else 

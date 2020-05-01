@@ -9,6 +9,8 @@
    <li><%= report.time %></li>
    <li><%= report.location %></li>
    <li><%= report.description %></li>
+   <li><a href="/reports/<%= "#{report.id}"%>/edit">Edit report</a></li>
+   <li><a href="/reports/<%= "#{report.id}"%>/delete">Delete report</a></li>
 </ul>
 <% end %>
 <br>
