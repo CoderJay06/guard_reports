@@ -37,6 +37,15 @@ class ApplicationController < Sinatra::Base
       user.company = params[:company]
       user.save
     end 
+
+    def create_new_report(report)
+      report.report_type = params[:report_type]
+      report.date = params[:date]
+      report.time = params[:time]
+      report.location = params[:location]
+      report.description = params[:description]
+      report.save
+    end 
     
     # # determine if user signup fields are filled out
     # def signup_fields_empty? 

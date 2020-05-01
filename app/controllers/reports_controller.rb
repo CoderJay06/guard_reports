@@ -19,15 +19,9 @@ class ReportsController < ApplicationController
    end 
    # creates new reports when all form fields are filled
    post '/reports' do 
-      #raise params.inspect
-        #binding.pry
-      @report = Report.create(
-         report_type: params[:report_type],
-         date: params[:date],
-         time: params[:time],
-         location: params[:location],
-         description: params[:description]
-      )
+      @report = Report.new 
+      create_new_report(@report)
+      #binding.pry 
       if @report.valid?
          # assign guard/user to their report
          @report.guard_id = session[:guard_id]
