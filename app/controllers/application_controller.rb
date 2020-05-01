@@ -28,6 +28,15 @@ class ApplicationController < Sinatra::Base
     def current_user 
       @current_user ||= Guard.find_by(session[:guard_id]) if session[:guard_id]
     end 
+
+    def create_new_user(user)
+      user.name = params[:name]
+      user.email = params[:email]
+      user.number = params[:number]
+      user.password = params[:password]
+      user.company = params[:company]
+      user.save
+    end 
     
     # # determine if user signup fields are filled out
     # def signup_fields_empty? 

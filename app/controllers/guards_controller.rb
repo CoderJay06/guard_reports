@@ -12,17 +12,12 @@ class GuardsController < ApplicationController
    post '/signup' do 
       #binding.pry
       # creates a new guard/user 
-      @guard = Guard.create(
-         name: params[:name],
-         email: params[:email],
-         number: params[:number],
-         password: params[:password],
-         company: params[:company]
-      )
+      @guard = Guard.new
+      create_new_user(@guard)
       # log in user/guard when created fields are valid
       # then redirect to their show page
       if @guard.valid?
-         session[:guard_id] = @guard.id 
+         current_user = @guard
          redirect to "guards/#{@guard.id}"
       else 
          if @guard.errors.any? 
@@ -67,14 +62,14 @@ class GuardsController < ApplicationController
 
    post '/logout' do 
       #logout the user/guard and redirect to login
-      session.clear 
+      session.destroy
       redirect to "/login"
    end 
    # dynamic route for a single user/guard
    get '/guards/:id' do 
       # find current user/guard by ID
-      binding.pry
-      @guard = Guard.find_by(params[:guard_id])
+      #binding.pry
+      @guard = Guard.find(params[:id])
 
       # render their show page
       erb :'guards/show'
