@@ -4,7 +4,7 @@ class GuardsController < ApplicationController
       # render signup form page if not logged in 
       if !logged_in? 
          erb :'guards/signup'
-      else 
+      else
          redirect to "/reports"
       end 
    end
@@ -25,7 +25,7 @@ class GuardsController < ApplicationController
                puts error_message + "!"
             end 
          end 
-         # redirects back to signup if fields not valid or empty
+         # renders signup page if fields not valid
          erb :'guards/signup'
       end 
    end 
@@ -51,20 +51,16 @@ class GuardsController < ApplicationController
    end 
 
    get '/logout' do 
-      # render the logout page if user is logged in
       if logged_in?
-         erb :'guards/logout'
+         #logout the user/guard and redirect to login
+         session.destroy
+         redirect to "/login"
       else 
          # redirect to homepage if not logged in 
          redirect to "/"
       end 
    end 
-
-   post '/logout' do 
-      #logout the user/guard and redirect to login
-      session.destroy
-      redirect to "/login"
-   end 
+   
    # dynamic route for a single user/guard
    get '/guards/:id' do 
       # find current user/guard by ID

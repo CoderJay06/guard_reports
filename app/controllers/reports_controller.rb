@@ -79,7 +79,7 @@ class ReportsController < ApplicationController
 
       # delete report if reports owner is the logged in user/guard
       if reports_authorized_user?(@report)
-         @report.delete
+         @report.destroy
          redirect to "/reports"
       else 
          # if logged in user/guard is not reports owner display warning
