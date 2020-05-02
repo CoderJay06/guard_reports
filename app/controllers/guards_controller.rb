@@ -10,12 +10,12 @@ class GuardsController < ApplicationController
    end
    
    post '/signup' do 
-      # creates a new guard/user 
+      # creates a new guard/user when valid
       @guard = Guard.new
       create_new_user(@guard)
       # log in user/guard when created fields are valid
       # then redirect to their show page
-      if @guard.valid?
+      if @guard.save && @guard.valid?
          sign_in_user(@guard)
          redirect to "guards/#{@guard.id}"
       else 
@@ -26,7 +26,7 @@ class GuardsController < ApplicationController
             end 
          end 
          # redirects back to signup if fields not valid or empty
-         redirect to "/signup"
+         erb :'guards/signup'
       end 
    end 
 

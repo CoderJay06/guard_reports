@@ -61,6 +61,11 @@ class ApplicationController < Sinatra::Base
      )
     end 
 
+    def report_fields_empty?
+      params[:report_type] == "" || params[:date] == "" || params[:time] == "" || 
+      params[:location] == "" || params[:description] == ""
+    end 
+
     def set_report 
       @report = Report.find_by_id(params[:id])
     end 

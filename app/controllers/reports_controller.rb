@@ -20,12 +20,12 @@ class ReportsController < ApplicationController
    end 
 
    post '/reports' do 
-      # creates new reports when all form fields are filled
+      # creates new reports when all form fields are valid
       @report = Report.new 
       create_new_report(@report)
-      if @report.valid?
-         # assign guard/user to their report
-         @report.guard_id = session[:guard_id]
+      # when validated assign guard/user to their report
+      if @report.save && @report.valid?
+         @report.guard = current_user
          @report.save
          # render report show page 
          redirect to "/reports/#{@report.id}"
@@ -47,7 +47,7 @@ class ReportsController < ApplicationController
    # render the edit page for a single report
    get '/reports/:id/edit' do 
       set_report
-
+   
       erb :'reports/edit'
    end 
 
@@ -63,13 +63,13 @@ class ReportsController < ApplicationController
       
       # update report if reports owner is the logged in user/guard
       # and user input is valid
-      if reports_authorized_user?(@report) && @report.valid?
+      if reports_authorized_user?(@report) && !report_fields_empty?
          update_report(@report)
          # redirect to reports show page
          redirect to "/reports/#{@report.id}"
       else 
-         # if logged in user/guard is not reports owner display warning
-         puts "You can not edit another guards report!"
+         # if logged in user/guard is not reports owner
+         # or any update report fields are not filled out
          redirect to "/reports"
       end 
    end 
