@@ -31,7 +31,6 @@ GEM
     concurrent-ruby (1.1.6)
     daemons (1.3.1)
     diff-lcs (1.3)
-    dynamic_form (1.1.4)
     eventmachine (1.2.7)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -48,8 +47,6 @@ GEM
       method_source (~> 1.0)
     public_suffix (4.0.4)
     rack (2.2.2)
-    rack-flash3 (1.0.5)
-      rack
     rack-protection (2.0.8.1)
       rack
     rack-test (1.1.0)
@@ -114,9 +111,7 @@ DEPENDENCIES
   activerecord (~> 4.2, >= 4.2.6)
   bcrypt
   capybara
-  dynamic_form
   pry
-  rack-flash3
   rack-test
   rake
   require_all
