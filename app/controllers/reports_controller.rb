@@ -2,23 +2,25 @@
 
 class ReportsController < ApplicationController 
    
-   # render reports page to view all reports when logged in
    get '/reports' do 
-      @reports = Report.all 
+      @reports = Report.all
+      
+      # render reports page to view all reports when logged in
       if logged_in?
          erb :'reports/reports'
-      else 
+      else
          redirect to "/signup"
       end 
    end 
    # render page to create a new report 
    get '/reports/new' do 
       @reports = Report.all 
-
+       
       erb :'reports/new'
    end 
-   # creates new reports when all form fields are filled
+
    post '/reports' do 
+      # creates new reports when all form fields are filled
       @report = Report.new 
       create_new_report(@report)
       if @report.valid?
@@ -33,8 +35,7 @@ class ReportsController < ApplicationController
    end 
    # dynamic route for viewing single report
    get '/reports/:id' do 
-      #binding.pry
-      # find report by ID and render show page if logged in
+      # find report by ID and render its show page if logged in
       set_report
       if logged_in? 
          erb :"reports/show_report"
@@ -46,7 +47,7 @@ class ReportsController < ApplicationController
    # render the edit page for a single report
    get '/reports/:id/edit' do 
       set_report
-      #binding.pry
+
       erb :'reports/edit'
    end 
 
@@ -59,7 +60,7 @@ class ReportsController < ApplicationController
 
    patch '/reports/:id' do 
       set_report
-      #binding.pry
+      
       # update report if reports owner is the logged in user/guard
       if @report.guard == current_user
          report_update(@report)
@@ -74,7 +75,7 @@ class ReportsController < ApplicationController
 
    delete '/reports/:id' do 
       set_report
-      #binding.pry
+
       # delete report if reports owner is the logged in user/guard
       if @report.guard == current_user
          @report.delete

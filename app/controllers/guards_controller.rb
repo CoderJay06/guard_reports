@@ -10,7 +10,6 @@ class GuardsController < ApplicationController
    end
    
    post '/signup' do 
-      #binding.pry
       # creates a new guard/user 
       @guard = Guard.new
       create_new_user(@guard)
@@ -20,6 +19,7 @@ class GuardsController < ApplicationController
          current_user = @guard
          redirect to "guards/#{@guard.id}"
       else 
+         # display error message(s) for each invalid field 
          if @guard.errors.any? 
             @guard.errors.full_messages.each do |error_message|
                puts error_message + "!"
@@ -38,8 +38,9 @@ class GuardsController < ApplicationController
    post '/login' do 
     # find current guard/user 
     @guard = Guard.find_by(email: params[:email])
-    #binding.pry 
-    # validate user credentials and login if validated
+    
+    # validate guard/user credentials, login if validated
+    # then redirect to their show page 
     if @guard && @guard.authenticate(params[:password])
       session[:guard_id] = @guard.id 
       redirect to "guards/#{@guard.id}"
@@ -51,7 +52,6 @@ class GuardsController < ApplicationController
 
    get '/logout' do 
       # render the logout page if user is logged in
-     # binding.pry
       if logged_in?
          erb :'guards/logout'
       else 
@@ -68,7 +68,6 @@ class GuardsController < ApplicationController
    # dynamic route for a single user/guard
    get '/guards/:id' do 
       # find current user/guard by ID
-      #binding.pry
       @guard = Guard.find(params[:id])
 
       # render their show page
