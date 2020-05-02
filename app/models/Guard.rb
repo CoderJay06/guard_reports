@@ -7,6 +7,7 @@ class Guard < ActiveRecord::Base
    {:with => /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/}
    validates :email, uniqueness: true, 
    :format => {:with => /\w+@\w+\.\w+/}
+   validates :password, :length => { :in => 4..20 }
    has_secure_password
    has_many :reports
 

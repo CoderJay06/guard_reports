@@ -1,6 +1,13 @@
 <h2>Signup Here</h2>
 <form action="/signup" method="POST">
-   <label for="guard_name">Name</label>
+   <% if @guard && @guard.errors.full_messages.any? %>
+      <% @guard.errors.full_messages.each do |error_message| %>
+         <%= error_message  %>
+         <br>
+      <% end%>
+   <% end %>
+   <br>
+  <label for="guard_name">Name</label>
    <input id="guard_name" type="text" name="name" required>
    <br>
    <label for="guard_email">Email</label>
