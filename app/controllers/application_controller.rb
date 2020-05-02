@@ -60,6 +60,10 @@ class ApplicationController < Sinatra::Base
     def set_report 
       @report = Report.find_by_id(params[:id])
     end 
+
+    def reports_authorized_user(report)
+      report.guard == current_user 
+    end 
   end 
 
 end

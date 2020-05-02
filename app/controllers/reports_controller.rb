@@ -62,8 +62,9 @@ class ReportsController < ApplicationController
       set_report
       
       # update report if reports owner is the logged in user/guard
-      if @report.guard == current_user
-         report_update(@report)
+      # and user input is valid
+      if reports_authorized_user(@report) && @report.valid?
+         update_report(@report)
          # redirect to reports show page
          redirect to "/reports/#{@report.id}"
       else 
@@ -77,7 +78,7 @@ class ReportsController < ApplicationController
       set_report
 
       # delete report if reports owner is the logged in user/guard
-      if @report.guard == current_user
+      if reports_authorized_user(@report)
          @report.delete
          redirect to "/reports"
       else 
