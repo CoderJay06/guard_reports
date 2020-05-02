@@ -16,7 +16,7 @@ class GuardsController < ApplicationController
       # log in user/guard when created fields are valid
       # then redirect to their show page
       if @guard.valid?
-         current_user = @guard
+         sign_in_user(@guard)
          redirect to "guards/#{@guard.id}"
       else 
          # display error message(s) for each invalid field 
@@ -42,7 +42,7 @@ class GuardsController < ApplicationController
     # validate guard/user credentials, login if validated
     # then redirect to their show page 
     if @guard && @guard.authenticate(params[:password])
-      session[:guard_id] = @guard.id 
+      sign_in_user(@guard)
       redirect to "guards/#{@guard.id}"
     else 
       # redirect back if credentials not validated

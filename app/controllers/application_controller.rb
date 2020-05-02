@@ -29,6 +29,10 @@ class ApplicationController < Sinatra::Base
       @current_user = Guard.find(session[:guard_id]) if session[:guard_id]
     end 
 
+    def sign_in_user(user)
+      session[:guard_id] = user.id 
+    end 
+
     def create_new_user(user)
       user.name = params[:name]
       user.email = params[:email]
@@ -61,7 +65,7 @@ class ApplicationController < Sinatra::Base
       @report = Report.find_by_id(params[:id])
     end 
 
-    def reports_authorized_user(report)
+    def reports_authorized_user?(report)
       report.guard == current_user 
     end 
   end 
