@@ -1,25 +1,23 @@
 
 
 class ReportsController < ApplicationController 
-   
+   # render reports page to view all reports
    get '/reports' do 
+      redirect_when_not_logged_in 
       @reports = Report.all
-      
-      # render reports page to view all reports when logged in
-      if logged_in?
-         erb :'reports/reports'
-      else
-         redirect to "/signup"
-      end 
+
+      erb :'reports/reports'
    end 
    # render page to create a new report 
    get '/reports/new' do 
+      redirect_when_not_logged_in 
       @reports = Report.all 
-       
+
       erb :'reports/new'
    end 
 
    post '/reports' do 
+      redirect_when_not_logged_in 
       # creates new reports when all form fields are valid
       @report = Report.new 
       create_new_report(@report)
@@ -36,31 +34,31 @@ class ReportsController < ApplicationController
    # dynamic route for viewing single report
    get '/reports/:id' do 
       # find report by ID and render its show page if logged in
+      redirect_when_not_logged_in 
       set_report
-      if logged_in? 
-         erb :"reports/show_report"
-      else 
-         redirect to "/login"
-      end 
+
+      erb :'reports/show_report'
    end 
 
    # render the edit page for a single report
    get '/reports/:id/edit' do 
+      redirect_when_not_logged_in 
       set_report
-   
+
       erb :'reports/edit'
    end 
 
    # render delete page for a single report
    get '/reports/:id/delete' do 
+      redirect_when_not_logged_in 
       set_report
 
       erb :'reports/delete'
    end 
 
    patch '/reports/:id' do 
+      redirect_when_not_logged_in 
       set_report
-      
       # update report if reports owner is the logged in user/guard
       # and user input is valid
       if reports_authorized_user?(@report) && !report_fields_empty?
@@ -75,8 +73,8 @@ class ReportsController < ApplicationController
    end 
 
    delete '/reports/:id' do 
+      redirect_when_not_logged_in 
       set_report
-
       # delete report if reports owner is the logged in user/guard
       if reports_authorized_user?(@report)
          @report.destroy
