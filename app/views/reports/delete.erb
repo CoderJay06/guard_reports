@@ -9,5 +9,7 @@
 <form action="/reports/<%= @report.id %>" method="POST">
    <input id="hidden" type="hidden" name="_method" value="delete">
    <br>
+   <% if @report.guard == current_user %>
    <button class="danger"><input type="submit" value="DELETE"></button>
 </form>
+   <% end %>

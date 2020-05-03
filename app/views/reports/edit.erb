@@ -20,7 +20,8 @@
    <textarea id="report_description" name="description" 
    rows="10" cols="50" minlength="10" placeholder="<%= @report.description %>"></textarea>
    <br>
+   <% if @report.guard == current_user %>
    <input type="submit" value="Update">
-
+   <% end %>
 
 </form>
