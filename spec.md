@@ -21,7 +21,7 @@ Specs:
    Using ActiveModel Validations gem, user input is validated.
 - [x] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
    Validation errors are displayed on views using ActiveModel and HTML form validations.
-- [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
+- [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
 - [ ] You have a large number of small Git commits
