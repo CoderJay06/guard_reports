@@ -31,8 +31,12 @@ class GuardsController < ApplicationController
    end 
 
    get '/login' do 
-    # render login form 
-    erb :'guards/login'
+    # render login form  when not logged in
+    if !logged_in?
+      erb :'guards/login'
+    else 
+      redirect to "/reports"
+    end 
    end 
    
    post '/login' do 
