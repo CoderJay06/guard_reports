@@ -23,8 +23,7 @@ class ReportsController < ApplicationController
       create_new_report(@report)
       # when validated assign guard/user to their report
       if @report.save && @report.valid?
-         @report.guard = current_user
-         @report.save
+         associate_report_with_user(@report)
          # render report show page 
          redirect to "/reports/#{@report.id}"
       else 
@@ -42,6 +41,7 @@ class ReportsController < ApplicationController
 
    # render the edit page for a single report
    get '/reports/:id/edit' do 
+      binding.pry
       redirect_when_not_logged_in 
       set_report
 

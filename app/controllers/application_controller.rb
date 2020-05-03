@@ -31,7 +31,7 @@ class ApplicationController < Sinatra::Base
     
     def redirect_when_not_logged_in 
       if !logged_in? 
-        redirect to "/login?error=You have to be logged in to do that"
+        redirect to "/login"
       end 
     end 
 
@@ -87,6 +87,19 @@ class ApplicationController < Sinatra::Base
         redirect to "/reports"
       end 
     end 
+
+      def associate_report_with_user(report)
+        @guard = current_user
+        @guard.reports.build(
+          report_type: report.report_type,
+          date: report.date,
+          time: report.time,
+          location: report.location,
+          description: report.description
+        )
+        report.guard = @guard 
+        report.save
+      end 
 
     def reports_authorized_user?(report)
       report.guard == current_user 
