@@ -5,15 +5,15 @@ A simple application for security guard reporting. This app is useful for organi
 
 ## Installation Instructions 
 
-To use this app, just clone this [repo](https://github.com/CoderJay06/guard_reports). Then execute:
-$ 'bundle install'
+To use this app, just clone this [repo](https://github.com/CoderJay06/guard_reports). Then execute:<br>
+$ `bundle install`
 
 ## Usage 
 
 After installation:
- Run: 'rake db:migrate'
- Run: 'rake db:seed' (*optional*)
- Run: 'shotgun'
+ Run: `rake db:migrate` <br>
+ Run: `rake db:seed` (*optional*) <br>
+ Run: `shotgun`
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CoderJay06/guard_reports. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
