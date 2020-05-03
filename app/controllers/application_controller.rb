@@ -82,6 +82,12 @@ class ApplicationController < Sinatra::Base
       end 
     end 
 
+    def redirect_when_logged_in 
+      if logged_in? 
+        redirect to "/reports"
+      end 
+    end 
+
     def reports_authorized_user?(report)
       report.guard == current_user 
     end 

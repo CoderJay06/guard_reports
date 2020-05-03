@@ -1,12 +1,9 @@
 
 class GuardsController < ApplicationController 
    get '/signup' do 
+      redirect_when_logged_in
       # render signup form page if not logged in 
-      if !logged_in? 
-         erb :'guards/signup'
-      else
-         redirect to "/reports"
-      end 
+      erb :'guards/signup'
    end
    
    post '/signup' do 
@@ -31,12 +28,9 @@ class GuardsController < ApplicationController
    end 
 
    get '/login' do 
-    # render login form  when not logged in
-    if !logged_in?
+      redirect_when_logged_in
+      # render login form  when not logged in
       erb :'guards/login'
-    else 
-      redirect to "/reports"
-    end 
    end 
    
    post '/login' do 
