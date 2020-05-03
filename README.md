@@ -10,7 +10,7 @@ $ `bundle install`
 
 ## Usage 
 
-After installation:
+After installation:<br>
  Run: `rake db:migrate` <br>
  Run: `rake db:seed` (*optional*) <br>
  Run: `shotgun`
