@@ -65,9 +65,12 @@ class GuardsController < ApplicationController
    get '/guards/:id' do 
       # find current user/guard by ID
       @guard = Guard.find(params[:id])
-
-      # render their show page
-      erb :'guards/show'
+      # when current user render their profile page
+      if @guard == current_user
+         erb :'guards/show'
+      else 
+         redirect to "/"
+      end
    end 
 
 end 
