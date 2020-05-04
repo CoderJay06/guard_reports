@@ -2,8 +2,7 @@
 <form action="/signup" method="POST">
    <% if @guard && @guard.errors.full_messages.any? %>
       <% @guard.errors.full_messages.each do |error_message| %>
-         <%= error_message  %>
-         <br>
+         <p style="color:red"><%= error_message  %></p>
       <% end%>
    <% end %>
    <br>
