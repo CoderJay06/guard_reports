@@ -1,13 +1,15 @@
-<h4>All Reports</h4>
+<h3>All Reports</h3>
   <ul>
     <% @reports.each do |report| %>
     <br>
     <li><a href="/reports/<%= report.id %>">View Report</a></li>
-    <li>Report Type: <%= report.report_type %></li>
-    <li>Report Date: <%= report.date %></li>
-    <li>Report Time: <%= report.time %></li>
-    <li>Report Location: <%= report.location %></li>
-    <li>Report Description: <%= report.description %></li>
+    <li><strong>Report Type:</strong> <%= report.report_type %></li>
+    <li><strong>Report Date:</strong> <%= report.date %></li>
+    <li><strong>Report Time:</strong> <%= report.time %></li>
+    <li><strong>Report Location:</strong> <%= report.location %></li>
+    <li><strong>Report Description:</strong> <%= report.description %></li>
+    <li><strong><i>Created at:</strong> </i><%= report.created_at %></li>
+    <li><strong><i>Updated at:</strong> </i><%= report.updated_at %></li>
     <br>
     <% end %>
   </ul>

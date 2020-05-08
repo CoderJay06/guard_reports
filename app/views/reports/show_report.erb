@@ -5,6 +5,8 @@
 <p><strong>Time: </strong><%= @report.time %></p>
 <p><strong>Location: </strong><%= @report.location %></p>
 <p><strong>Description: </strong><%= @report.description %></p>
+<p><strong><i>Created at:</strong> </i><%= @report.created_at %></p>
+<p><strong><i>Updated at:</strong> </i><%= @report.updated_at %></p>
 <% if @report.guard == current_user %>
 <a href="/reports/<%= @report.id %>/edit">Edit report</a>
 <br>

@@ -1,5 +1,4 @@
 
-
 class ReportsController < ApplicationController 
    # render reports page to view all reports
    get '/reports' do 
@@ -41,7 +40,6 @@ class ReportsController < ApplicationController
 
    # render the edit page for a single report
    get '/reports/:id/edit' do 
-      binding.pry
       redirect_when_not_logged_in 
       set_report
 
