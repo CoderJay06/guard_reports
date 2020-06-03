@@ -42,16 +42,22 @@ class ReportsController < ApplicationController
    get '/reports/:id/edit' do 
       redirect_when_not_logged_in 
       set_report
-
-      erb :'reports/edit'
+      if reports_authorized_user?(@report)
+         erb :'reports/edit'
+      else  
+         redirect to "/reports"
+      end 
    end 
 
    # render delete page for a single report
    get '/reports/:id/delete' do 
       redirect_when_not_logged_in 
       set_report
-
-      erb :'reports/delete'
+      if reports_authorized_user?(@report)
+         erb :'reports/delete'
+      else  
+         redirect to "/reports"
+      end 
    end 
 
    patch '/reports/:id' do 
