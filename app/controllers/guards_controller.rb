@@ -1,5 +1,8 @@
+require './app/helpers/guard_helpers'
 
 class GuardsController < ApplicationController 
+   helpers GuardHelpers
+
    get '/signup' do 
       redirect_when_logged_in
       # render signup form page if not logged in 
