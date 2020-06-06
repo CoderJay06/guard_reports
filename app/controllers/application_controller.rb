@@ -28,12 +28,6 @@ class ApplicationController < Sinatra::Base
       # assign current user with session id if it exists
       @current_user = Guard.find(session[:guard_id]) if session[:guard_id]
     end
-    
-    def redirect_when_not_logged_in 
-      if !logged_in? 
-        redirect to "/login"
-      end 
-    end 
 
     def redirect_when_not_logged_in 
       if !logged_in? 
