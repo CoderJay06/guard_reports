@@ -1,5 +1,8 @@
+require './app/helpers/report_helpers'
 
 class ReportsController < ApplicationController 
+   helpers ReportHelpers 
+
    # render reports page to view all reports
    get '/reports' do 
       redirect_when_not_logged_in 
