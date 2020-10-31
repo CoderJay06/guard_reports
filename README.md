@@ -18,6 +18,9 @@ After installation:<br>
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/CoderJay06/guard_reports. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
+## Logo
+![Image of Guard Reports logo](https://github.com/CoderJay06/guard_reports/blob/master/public/images/guard-reports-logo.png)
+
 ## License
 
 The app is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
