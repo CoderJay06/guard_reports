@@ -1,7 +1,7 @@
 
 # Guard Reports
 
-A simple application for security guard reporting. This app is useful for organization and creation of security reports. A user can create an account, create a new report, edit their reports and view multiple or single reports at a time. 
+A simple application for security guard reporting. This app is useful for writing and organization of daily activity reports and incident reports for security guards. A user can create an account, create a new report, edit their reports and view multiple or single reports at a time.
 
 ## Installation Instructions 
 
