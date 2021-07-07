@@ -10,16 +10,15 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     set :session_secret, ENV['SESSION_SECRET']
   end
-
-  # renders the index (homepage)
+  
   get '/' do
     erb :index
   end
+
   # helper methods for controllers
   helpers do
-    # true if user/guard is logged in else false
     def logged_in?
-      # boolean expression of current_user objects truthiness
+      # return current_user objects truthiness
       !!current_user
     end
 

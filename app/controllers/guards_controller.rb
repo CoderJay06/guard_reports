@@ -12,11 +12,9 @@ class GuardsController < ApplicationController
   end
 
   post '/signup' do
-    # creates a new guard/user when valid
     @guard = Guard.new
     create_new_user(@guard)
-    # log in user/guard when created fields are valid
-    # then redirect to their show page
+
     if @guard.save && @guard.valid?
       sign_in_user(@guard)
       redirect to "guards/#{@guard.id}"
@@ -27,7 +25,7 @@ class GuardsController < ApplicationController
           puts "#{error_message}!"
         end
       end
-      # renders signup page if fields not valid
+      # render signup page if fields not valid
       erb :'guards/signup'
     end
   end
@@ -39,36 +37,29 @@ class GuardsController < ApplicationController
   end
 
   post '/login' do
-    # find current guard/user
     @guard = Guard.find_by(email: params[:email])
 
-    # validate guard/user credentials, login if validated
-    # then redirect to their show page
     if @guard&.authenticate(params[:password])
       sign_in_user(@guard)
       redirect to "guards/#{@guard.id}"
     else
-      # redirect back if credentials not validated
+      # redirect if failed authentication
       redirect to '/login'
     end
   end
 
   get '/logout' do
     if logged_in?
-      # logout the user/guard and redirect to login
       session.destroy
       redirect to '/login'
     else
-      # redirect to homepage if not logged in
       redirect to '/'
     end
   end
 
-  # dynamic route for a single user/guard
   get '/guards/:id' do
-    # find current user/guard by ID
     @guard = Guard.find(params[:id])
-    # when current user render their profile page
+
     if @guard == current_user
       erb :'guards/show'
     else
