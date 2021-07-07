@@ -48,7 +48,7 @@ class ReportsController < ApplicationController
       redirect to '/reports'
     end
   end
-  
+
   get '/reports/:id/delete' do
     redirect_when_not_logged_in
     set_report
