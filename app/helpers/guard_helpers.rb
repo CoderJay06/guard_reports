@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module GuardHelpers
   def sign_in_user(user)
     session[:guard_id] = user.id

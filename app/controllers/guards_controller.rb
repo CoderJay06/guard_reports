@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './app/helpers/guard_helpers'
 
 class GuardsController < ApplicationController
@@ -22,7 +24,7 @@ class GuardsController < ApplicationController
       # display error message(s) for each invalid field
       if @guard.errors.any?
         @guard.errors.full_messages.each do |error_message|
-          puts error_message + '!'
+          puts "#{error_message}!"
         end
       end
       # renders signup page if fields not valid
@@ -42,7 +44,7 @@ class GuardsController < ApplicationController
 
     # validate guard/user credentials, login if validated
     # then redirect to their show page
-    if @guard && @guard.authenticate(params[:password])
+    if @guard&.authenticate(params[:password])
       sign_in_user(@guard)
       redirect to "guards/#{@guard.id}"
     else

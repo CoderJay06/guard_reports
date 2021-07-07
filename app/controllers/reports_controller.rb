@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './app/helpers/report_helpers'
 
 class ReportsController < ApplicationController

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # seed data file
 @guard1 = Guard.create(
   name: 'Joe Smith',

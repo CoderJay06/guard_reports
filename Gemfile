@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'http://rubygems.org'
 
 gem 'activemodel', require: 'active_model'
@@ -7,6 +9,8 @@ gem 'pry'
 gem 'rake'
 gem 'require_all'
 gem 'rubocop', require: false
+gem 'rubocop-rake', require: false
+gem 'rubocop-rspec', require: false
 gem 'shotgun'
 gem 'sinatra'
 gem 'sinatra-activerecord', require: 'sinatra/activerecord'

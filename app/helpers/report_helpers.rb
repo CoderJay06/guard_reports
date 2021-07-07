@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ReportHelpers
   def create_new_report(report)
     report.report_type = params[:report_type]
