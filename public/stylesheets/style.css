@@ -55,9 +55,20 @@
     font-size: 18px;
     line-height: 36px;
   }
+/* reports list styles */
+  ul.reports-list {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    text-align: left;
+  }
 
-  p {
-    margin-bottom: 18px;
+/* report styles */
+  .report {
+    margin-left: auto;
+    margin-right: auto;
+    display: table;
+    text-align: left;
   }
 
   a:hover {
