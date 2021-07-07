@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class GuardsTable < ActiveRecord::Migration
   def change
     create_table :guards do |t|
@@ -5,9 +7,9 @@ class GuardsTable < ActiveRecord::Migration
       t.string :email
       t.integer :number
       t.string :password_digest
-      t.string :company 
+      t.string :company
 
       t.timestamps null: false
-    end 
+    end
   end
 end

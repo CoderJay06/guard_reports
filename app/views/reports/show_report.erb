@@ -8,9 +8,9 @@
     <p><strong>Description: </strong><%= @report.description %></p>
     <p><strong><i>Created at:</strong> </i><%= @report.created_at %></p>
     <p><strong><i>Updated at:</strong> </i><%= @report.updated_at %></p>
-    <% if @report.guard == current_user %>
+</div>
+<% if @report.guard == current_user %>
     <a href="/reports/<%= @report.id %>/edit">Edit report</a>
     <br>
     <a href="/reports/<%= @report.id %>/delete">Delete report</a>
-    <% end %>
-</div>
+<% end %>

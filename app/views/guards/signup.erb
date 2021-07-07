@@ -1,41 +1,41 @@
 <h2>Signup Here</h2>
 <form action="/signup" method="POST">
-<div>
-   <% if @guard && @guard.errors.full_messages.any? %>
-      <% @guard.errors.full_messages.each do |error_message| %>
-         <p style="color:red"><%= error_message  %></p>
-      <% end%>
-   <% end %>
-   <br>
    <div>
-      <label for="guard_name">Name</label>
-      <input id="guard_name" type="text" name="name" required>
+      <% if @guard && @guard.errors.full_messages.any? %>
+         <% @guard.errors.full_messages.each do |error_message| %>
+            <p style="color:red"><%= error_message  %></p>
+         <% end%>
+      <% end %>
+      <br>
+      <div>
+         <label for="guard_name">Name</label>
+         <input id="guard_name" type="text" name="name" required>
+      </div>
+      <br>
+      <div>
+         <label for="guard_email">Email</label>
+         <input id="guard_email" type="email" name="email" required>
+      </div>
+      <br>
+      <div>
+         <label for="guard_number">Phone Number</label>
+         <input id="guard_number" type="tel" name="number" required>
+      </div>
+      <br>
+      <div>
+         <label for="guard_company">Company Name</label>
+         <input id="guard_company" type="text" name="company" required>
+      </div>
+      <br>
+      <div>
+         <label for="guard_password">Password</label>
+         <input id="guard_password" type="password" name="password" required>
+      </div>
+      <br>
+      <div>
+         <input type="submit" value="Signup">
+      </div>
    </div>
-   <br>
-   <div>
-      <label for="guard_email">Email</label>
-      <input id="guard_email" type="email" name="email" required>
-   </div>
-   <br>
-   <div>
-      <label for="guard_number">Phone Number</label>
-      <input id="guard_number" type="tel" name="number" required>
-   </div>
-   <br>
-   <div>
-      <label for="guard_company">Company Name</label>
-      <input id="guard_company" type="text" name="company" required>
-   </div>
-   <br>
-   <div>
-      <label for="guard_password">Password</label>
-      <input id="guard_password" type="password" name="password" required>
-   </div>
-   <br>
-   <div>
-      <input type="submit" value="Signup">
-   </div>
-</div>
 </form>
 <br>
 <h5><a href="/login">Login</a></h5>
