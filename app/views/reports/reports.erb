@@ -1,8 +1,9 @@
 <h3>All Reports</h3>
-  <ul>
+  <ul class="reports-list">
     <% @reports.each do |report| %>
     <br>
-    <li><a href="/reports/<%= report.id %>">View Report</a></li>
+    <li><a href="/reports/<%= report.id %>" class="view-report">View Report</a></li>
+    <br>
     <li><strong>Report Type:</strong> <%= report.report_type %></li>
     <li><strong>Report Date:</strong> <%= report.date %></li>
     <li><strong>Report Time:</strong> <%= report.time %></li>
