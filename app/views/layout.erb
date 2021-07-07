@@ -19,11 +19,11 @@
       <img src="/images/guard-reports-logo.png" alt="Guard Reports logo">
     </a>
     <div class="wrapper">
-     <%= yield %>
-     <% if current_user %>
-     <br><br>
-     <h5>Currently signed in as: <a href="/guards/<%= current_user.id %>">
-     <%= current_user.name %></a></h5>
+      <%= yield %>
+      <% if current_user %>
+      <br><br>
+      <h5>Currently signed in as: <a href="/guards/<%= current_user.id %>">
+      <%= current_user.name %></a></h5>
       <h5><a href='/logout'>Logout</a></h5>
       <% end %>
 
