@@ -3,7 +3,9 @@
 source 'http://rubygems.org'
 
 gem 'activemodel', require: 'active_model'
-gem 'activerecord', '~> 4.2', '>= 4.2.6', require: 'active_record'
+# gem 'activerecord', '~> 4.2', '>= 4.2.6', require: 'active_record'
+gem 'activerecord'
+gem 'sinatra-activerecord'
 gem 'bcrypt'
 gem 'pry'
 gem 'rake'
@@ -13,12 +15,23 @@ gem 'rubocop-rake', require: false
 gem 'rubocop-rspec', require: false
 gem 'shotgun'
 gem 'sinatra'
-gem 'sinatra-activerecord', require: 'sinatra/activerecord'
-gem 'sqlite3', '~> 1.3.6'
+gem 'pg'
+# gem 'sinatra-activerecord', require: 'sinatra/activerecord'
+# gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
+
 gem 'tux'
 # gem 'sinatra-flash'
 # gem "dynamic_form"
+
+# group :development do
+#  gem 'sqlite3'
+#  gem "tux"
+# end
+
+# group :production do
+#  gem 'pg'
+# end
 
 group :test do
   gem 'capybara'

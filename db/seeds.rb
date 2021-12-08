@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+Guard.destroy_all
+Report.destroy_all
+
 # seed data file
 @guard1 = Guard.create(
   name: 'Joe Smith',

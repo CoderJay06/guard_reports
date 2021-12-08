@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
-class ReportsTable < ActiveRecord::Migration
+class ReportsTable < ActiveRecord::Migration[6.1]
   def change
     create_table :reports do |t|
-      t.string :report_type
-      t.integer :guard_id
+      t.text :report_type
       t.date :date
       t.time :time
-      t.string :location
+      t.text :location
       t.text :description
-
+      t.references :guard
       t.timestamps null: false
     end
   end
