@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 
 gem 'activemodel', require: 'active_model'
 # gem 'activerecord', '~> 4.2', '>= 4.2.6', require: 'active_record'
+gem 'ruby'
 gem 'activerecord'
 gem 'sinatra-activerecord'
 gem 'bcrypt'
