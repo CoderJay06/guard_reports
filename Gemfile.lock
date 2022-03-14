@@ -43,8 +43,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
-      racc (~> 1.4)
     parallel (1.21.0)
     parser (3.0.3.2)
       ast (~> 2.4.1)
@@ -100,6 +98,7 @@ GEM
       rubocop (~> 1.0)
     rubocop-rspec (2.6.0)
       rubocop (~> 1.19)
+    ruby (0.1.0)
     ruby-progressbar (1.11.0)
     ruby2_keywords (0.0.5)
     shotgun (0.9.2)
@@ -147,6 +146,7 @@ DEPENDENCIES
   rubocop
   rubocop-rake
   rubocop-rspec
+  ruby
   shotgun
   sinatra
   sinatra-activerecord
