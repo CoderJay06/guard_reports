@@ -16,23 +16,24 @@ gem 'rubocop-rake', require: false
 gem 'rubocop-rspec', require: false
 gem 'shotgun'
 gem 'sinatra'
-gem 'pg'
+# gem 'pg'
 # gem 'sinatra-activerecord', require: 'sinatra/activerecord'
 # gem 'sqlite3', '~> 1.3.6'
 gem 'thin'
 
-gem 'tux'
+# gem 'tux'
 # gem 'sinatra-flash'
 # gem "dynamic_form"
 
-# group :development do
-#  gem 'sqlite3'
-#  gem "tux"
-# end
+group :development do
+ gem 'sqlite3'
+ gem "tux"
+end
 
-# group :production do
-#  gem 'pg'
-# end
+group :production do
+ gem 'pg'
+ gem 'activerecord-postgresql-adapter'
+end
 
 group :test do
   gem 'capybara'

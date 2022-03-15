@@ -1,12 +1,26 @@
+# development:
+#   adapter: postgresql
+#   database: development
+#   host: localhost
+# test:
+#     adapter: postgresql
+#     database: test
+#     host: localhost
+# production:
+#   adapter: postgresql
+#   database: production
+#   host: localhost
 development:
-  adapter: postgresql
-  database: development
-  host: localhost
+  adapter: sqlite3
+  database: database.db
+
 test:
-    adapter: postgresql
-    database: test
-    host: localhost
+  adapter: sqlite3
+  database: database.db
+
 production:
   adapter: postgresql
-  database: production
+  database: my_db
+  username: username
+  password: password
   host: localhost

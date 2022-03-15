@@ -6,6 +6,8 @@ GEM
     activerecord (6.1.4.1)
       activemodel (= 6.1.4.1)
       activesupport (= 6.1.4.1)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activesupport (6.1.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
@@ -111,6 +113,7 @@ GEM
     sinatra-activerecord (2.0.23)
       activerecord (>= 4.1)
       sinatra (>= 1.0)
+    sqlite3 (1.4.2)
     thin (1.8.1)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -135,6 +138,7 @@ PLATFORMS
 DEPENDENCIES
   activemodel
   activerecord
+  activerecord-postgresql-adapter
   bcrypt
   capybara
   pg
@@ -150,6 +154,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  sqlite3
   thin
   tux
 
